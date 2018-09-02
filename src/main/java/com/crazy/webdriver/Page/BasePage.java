@@ -1,5 +1,6 @@
 package com.crazy.webdriver.Page;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,16 +11,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.crazy.webdriver.base.WebDriverBase;
 import com.crazy.webdriver.util.GetByLocator;
+import com.crazy.webdriver.util.Log;
+
 
 public class BasePage extends WebDriverBase{
+	private Log logger=Log.getLogger(BasePage.class);
 	public String pageSource;
-	public WebDriver driver;
 	public BasePage(WebDriver driver){
-		this.driver=driver;
+		super.driver=driver;
 		this.pageSource=getPageSource();
 	}
 
 	public String getPageSource(){
+		logger.debug(driver.getPageSource());
 		return driver.getPageSource();
 	}
 	//输入
@@ -27,20 +31,16 @@ public class BasePage extends WebDriverBase{
 		if(element!=null){
 			element.sendKeys(value);
 		}else{
-			System.out.println("元素没有定位到，是null");
+			logger.error("元素没有定位到，是null");
 		}
 	}
-	//直接定位并输入
-	public void sendkeys(By by,String value){
-		WebElement element=driver.findElement(by);
-		sendkeys(element,value);
-	}
+
 	//点击
 	public void click(WebElement element){
 		if(element!=null){
 			element.click();
 		}else{
-			System.out.println("元素没有定位到，是null");
+			logger.error("元素没有定位到，是null");
 		}
 	}
 	
@@ -49,19 +49,35 @@ public class BasePage extends WebDriverBase{
 		if(element!=null){
 			element.clear();
 		}else{
-			System.out.println("元素没有定位到，是null");
+			logger.error("元素没有定位到，是null");
 		}
 	}
 	//点击元素，根据元素表中定位
 	public void clickByKey(String key) {
 		WebDriverBase.xianshiWait(driver, GetByLocator.getLocator(key));
-		driver.findElement(GetByLocator.getLocator(key)).click();
+		try {
+			driver.findElement(GetByLocator.getLocator(key)).click();
+			logger.debug(driver.findElement(GetByLocator.getLocator(key)).getText());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+			logger.error("没有定位到元素");
+		}
+
 	}
 	
 	//点击元素，根据by进行定位
 	public void clickByElement(By by) {
-		WebDriverBase.xianshiWait(driver, by);
-		driver.findElement(by).click();
+
+		try {
+			WebDriverBase.xianshiWait(driver, by);
+			driver.findElement(by).click();
+			logger.debug(driver.findElement(by).getText());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+			logger.error("没有定位到元素");
+		}
 	}
 	
 	/**
@@ -77,9 +93,10 @@ public class BasePage extends WebDriverBase{
 	public WebElement findElement(By by) {
 		try {
 			WebDriverBase.xianshiWait(driver, by);
+			logger.debug(driver.findElement(by).getText());
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("元素:    "+by+"未找到！");
+			logger.error("元素:    "+by+"未找到！");
 			e.printStackTrace();
 		}
 		return driver.findElement(by);
@@ -108,10 +125,78 @@ public class BasePage extends WebDriverBase{
 			});
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("元素：      "+by+"未找到！");
+			logger.error("元素：      "+by+"未找到！");
 			e.printStackTrace();
 		}
 		return webElements;
 	}
+	
+	/**
+	 * 
+	* @Title: sendkeys  
+	* @Description: TODO(元素框内先清空，后输入)  
+	* @param @param by
+	* @param @param text    参数  
+	* @return void    返回类型  
+	* @throws  
+	* @author duanhao
+	 */
+	public void sendkeys(By by,String text) {
+		findElement(by).clear();
+		findElement(by).sendKeys(text);
+		logger.debug("输入的元素是：   "+text);
+		
+	}
+	
+	/**
+	 * 
+	* @Title: getText  
+	* @Description: TODO(获取元素的text)  
+	* @param @param by
+	* @param @return    参数  
+	* @return String    返回类型  
+	* @throws  
+	* @author duanhao
+	 */
+	public String getText(By by) {
+		try {
+			logger.debug(findElement(by).getText());
+			return findElement(by).getText();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			logger.error("没有找到元素");
+		}
+		return null;
+		
+	}
+	
+	
+	/**
+	 * 
+	* @Title: getTexts  
+	* @Description: TODO(获取多个元素的文本值)  
+	* @param @param by
+	* @param @return    参数  
+	* @return List<String>    返回类型  
+	* @throws  
+	* @author duanhao
+	 */
+	public List<String> getTexts(By by){
+		ArrayList arrayList = new ArrayList();
+		List<WebElement> lists = findElements(by);
+//		for(int i = 0;i<lists.size();i++) {
+//			String text = lists.get(i).getText();
+//			arrayList.add(text);
+//		}
+		
+		
+		for(WebElement ae:lists) {
+			arrayList.add(ae.getText());
+			logger.debug(ae.getText());
+		}
+		return arrayList;
+	}
+	
 	
 }
