@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.crazy.webdriver.base.WebDriverBase;
+import com.crazy.webdriver.util.GetByLocator;
+
 public class BasePage {
 	public String pageSource;
 	public WebDriver driver;
@@ -36,11 +39,7 @@ public class BasePage {
 			System.out.println("元素没有定位到，是null");
 		}
 	}
-	//定位并点击
-	public void click(By by){
-		WebElement element=driver.findElement(by);
-		click(element);
-	}
+	
 	//清除
 	public void clear(WebElement element){
 		if(element!=null){
@@ -48,5 +47,16 @@ public class BasePage {
 		}else{
 			System.out.println("元素没有定位到，是null");
 		}
+	}
+	//点击元素，根据元素表中定位
+	public void clickByKey(String key) {
+		WebDriverBase.xianshiWait(driver, GetByLocator.getLocator(key));
+		driver.findElement(GetByLocator.getLocator(key)).click();;
+	}
+	
+	//点击元素，根据by进行定位
+	public void clickByElement(By by) {
+		WebDriverBase.xianshiWait(driver, by);
+		driver.findElement(by).click();;
 	}
 }
