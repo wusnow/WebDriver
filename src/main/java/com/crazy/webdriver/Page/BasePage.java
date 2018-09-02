@@ -1,13 +1,17 @@
 package com.crazy.webdriver.Page;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.crazy.webdriver.base.WebDriverBase;
 import com.crazy.webdriver.util.GetByLocator;
 
-public class BasePage {
+public class BasePage extends WebDriverBase{
 	public String pageSource;
 	public WebDriver driver;
 	public BasePage(WebDriver driver){
@@ -51,12 +55,63 @@ public class BasePage {
 	//点击元素，根据元素表中定位
 	public void clickByKey(String key) {
 		WebDriverBase.xianshiWait(driver, GetByLocator.getLocator(key));
-		driver.findElement(GetByLocator.getLocator(key)).click();;
+		driver.findElement(GetByLocator.getLocator(key)).click();
 	}
 	
 	//点击元素，根据by进行定位
 	public void clickByElement(By by) {
 		WebDriverBase.xianshiWait(driver, by);
-		driver.findElement(by).click();;
+		driver.findElement(by).click();
 	}
+	
+	/**
+	 * 
+	* @Title: findElement  
+	* @Description: TODO(显示等待一个元素出现，查找该元素)  
+	* @param @param by
+	* @param @return    参数  
+	* @return WebElement    返回类型  
+	* @throws  
+	* @author duanhao
+	 */
+	public WebElement findElement(By by) {
+		try {
+			WebDriverBase.xianshiWait(driver, by);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("元素:    "+by+"未找到！");
+			e.printStackTrace();
+		}
+		return driver.findElement(by);
+		
+		
+	}
+	
+	
+	/**
+	 * 
+	* @Title: findElements  
+	* @Description: TODO(查找多个元素等待元素出现的封装)  
+	* @param @param by
+	* @param @return    参数  
+	* @return List<WebElement>    返回类型  
+	* @throws  
+	* @author duanhao
+	 */
+	public List<WebElement> findElements(By by) {
+		List<WebElement> webElements = null;
+		try {
+			webElements = new WebDriverWait(driver, 30).until(new ExpectedCondition<List<WebElement>>() {
+				public List<WebElement> apply(WebDriver driver){
+					return driver.findElements(by);
+				}
+			});
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("元素：      "+by+"未找到！");
+			e.printStackTrace();
+		}
+		return webElements;
+	}
+	
 }

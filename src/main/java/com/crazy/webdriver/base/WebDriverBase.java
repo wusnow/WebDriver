@@ -34,6 +34,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -95,7 +96,26 @@ public class WebDriverBase{
 		
 	}
 	
-	
+	public static WebDriver driver;
+	public static WebDriver openBrowser(String Browser) {
+		String path = System.getProperty("user.dir");
+		if(Browser.toLowerCase().equals("chrome")) {
+			System.setProperty("webdriver.chrome.driver", path+"/drivers/chromedriver.exe");
+			driver = new ChromeDriver();
+		}else if (Browser.toLowerCase().equals("firefox")) {
+			System.setProperty("webdriver.firefox.driver", path+"/drivers/geckodriver.exe");
+			driver = new FirefoxDriver();
+		}else if (Browser.toLowerCase().equals("ie")) {
+			System.setProperty("webdriver.ie.driver", path+"/drivers/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+		}else if (Browser.toLowerCase().equals("safari")) {
+			System.setProperty("webdriver.safari.driver", path+"/drivers/safari.exe");
+			driver = new SafariDriver();
+		}else {
+			System.out.println("输入的浏览器名称不准确，输入的名称是："+Browser);
+		}
+		return driver;
+	}
 	
 	//启动不是在默认路径安装的火狐浏览器,支持57及以上
 	public static WebDriver openFF() {
