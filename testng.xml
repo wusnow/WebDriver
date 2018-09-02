@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Suite" parallel="methods">
+  <test thread-count="1" name="Test" parallel="methods">
+    <classes>
+      <class name="com.crazy.webdriver.Testcase.Zhuce163mail"/>
+    </classes>
+    
+    
+    
+    
+  </test> <!-- Test -->
+    
+    
+    <listeners>
+        <!-- //testng的XML配置文件中添加这些内容 -->
+       <listener class-name="org.uncommons.reportng.HTMLReporter" />
+       <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+</suite> <!-- Suite -->

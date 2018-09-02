@@ -1,0 +1,45 @@
+//hub主机注册
+java -jar selenium-server-standalone-3.9.0.jar -role hub -port 4445
+
+//相应的json
+{
+	"host": null,
+	"port": 4444,
+	"newSessionWaitTimeout": -1,
+	"servlets": [],
+	"prioritizer": null,
+	"capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+	"throwOnCapabilityNotPresent": true,
+	"nodePolling": 5000,
+	"cleanUpCycle": 5000,
+	"timeout": 300000,
+	"browserTimeout": 0,
+	"maxSession": 10
+}
+
+
+//grid主机注册命令行
+java -jar selenium-server-standalone-3.9.0.jar -role node -hub IP
+
+//对应的json
+{
+	"capabilities": [{
+		"browserName": "chrome",
+		"maxInstances": 5,
+		"platform": "WINDOWS",
+		"version": "51"
+	}, {
+		"browserName": "firefox",
+		"maxInstances": 5,
+		"platform": "WINDOWS",
+		"version": "47"
+	}],
+	"configuration": {
+		"proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+		"maxSession": 5,
+		"port": 5555,
+		"register": true,
+		"registerCycle": 5000,
+		"hub": "http://192.168.84.209:4444"
+	}
+}
