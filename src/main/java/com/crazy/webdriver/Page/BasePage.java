@@ -1,5 +1,6 @@
 package com.crazy.webdriver.Page;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -198,5 +199,9 @@ public class BasePage extends WebDriverBase{
 		return arrayList;
 	}
 	
+	public boolean fileExists(String filepath) {
+		return new File(filepath).exists();
+	}
 	
+
 }
