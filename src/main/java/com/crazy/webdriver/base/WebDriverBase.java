@@ -12,9 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import javax.imageio.ImageIO;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -40,14 +38,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import com.crazy.webdriver.Page.BasePage;
 import com.crazy.webdriver.util.Log;
 import com.gargoylesoftware.htmlunit.WebConsole.Logger;
 
 public class WebDriverBase{
 	
-	private Log logger=Log.getLogger(WebDriverBase.class);
+	public static Log logger=Log.getLogger(WebDriverBase.class);
 	
 	@DataProvider(name = "Browser")
 	public Object[][] getBrowser(){
@@ -68,6 +65,7 @@ public class WebDriverBase{
 //		driver=new ChromeDriver(options);
 		WebDriver driver = new ChromeDriver();
 //		waitDefalt(driver);
+		logger.debug("浏览器启动成功");
 		return driver;
 	}
 	
@@ -108,17 +106,22 @@ public class WebDriverBase{
 		if(Browser.toLowerCase().equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", path+"/drivers/chromedriver.exe");
 			driver = new ChromeDriver();
+			logger.debug("谷歌浏览器启动成功");
 		}else if (Browser.toLowerCase().equals("firefox")) {
 			System.setProperty("webdriver.firefox.driver", path+"/drivers/geckodriver.exe");
 			driver = new FirefoxDriver();
+			logger.debug("火狐浏览器启动成功");
 		}else if (Browser.toLowerCase().equals("ie")) {
 			System.setProperty("webdriver.ie.driver", path+"/drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
+			logger.debug("IE浏览器启动成功");
 		}else if (Browser.toLowerCase().equals("safari")) {
 			System.setProperty("webdriver.safari.driver", path+"/drivers/safari.exe");
 			driver = new SafariDriver();
+			logger.debug("Safari浏览器启动成功");
 		}else {
-			System.out.println("输入的浏览器名称不准确，输入的名称是："+Browser);
+			logger.debug("输入的浏览器名称不准确，输入的名称是：    "+Browser);
+
 		}
 		return driver;
 	}
@@ -134,7 +137,7 @@ public class WebDriverBase{
 //		firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-system,application/vnd.ms-sxcel,text/csv,application/zip,application/exe");
 		System.setProperty("webdriver.gecko.driver", "E:\\EclipseOxygen\\WorkSpace\\Myself\\drivers\\geckodriver.exe");
 		WebDriver driver = new FirefoxDriver();
-		
+		logger.debug("火狐浏览器启动成功");
 		return driver;
 	}
 	
@@ -201,25 +204,31 @@ public class WebDriverBase{
 			// TODO: handle exception
 			e.getMessage();
 		}
+		logger.debug("打开网页："+URL);
 	}
 	
 	
 	public static void close(WebDriver driver) {
 		//关闭当前窗口页面
+		
 		driver.close();
+		logger.debug("关闭当前窗口");
 	}
 	
 	public static void quit(WebDriver driver) {
 		//退出
 		driver.quit();
+		logger.debug("退出浏览器");
 	}
 	//隐式等待，默认是10s
 	public static void waitDefalt(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		logger.debug("隐式等待30s");
 	}
 	//隐式等待，时间自己设定
 	public static void wait(WebDriver driver,int time) {
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+		logger.debug("隐式等待"+time+"s");
 	}
 	
 	
@@ -235,25 +244,30 @@ public class WebDriverBase{
 	 */
 	public static void xianshiWait(WebDriver driver,By by) {
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(by));
+		logger.debug("显式等待30s");
 	}
 	
 	
 	//判断元素是否选中
 	public static boolean isSelected(WebDriver driver,By by) {
+		logger.debug("选中元素");
 		return driver.findElement(by).isSelected();
 	}
 	
 	//判断元素是否显示
 	
 	public static boolean isDisplayed(WebDriver driver,By by) {
+		logger.debug("元素是否显示：    "+driver.findElement(by).isDisplayed());
 		return driver.findElement(by).isDisplayed();
 	}
 	//判断元素是否被激活
 	public static boolean isEnabled(WebDriver driver,By by) {
+		logger.debug("元素是否被激活：   "+driver.findElement(by).isEnabled());
 		return driver.findElement(by).isEnabled();
 	}
 	//获取元素的属性，可以进行断言操作
 	public static String geta(WebDriver driver,By by,String name) {
+		logger.debug("获取元素的属性：     "+driver.findElement(by).getAttribute(name));
 		return driver.findElement(by).getAttribute(name);
 	}
 	//Alert弹窗
@@ -267,6 +281,7 @@ public class WebDriverBase{
 		//把控制权转交给alert
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
+		logger.debug("切换Alert弹窗");
 	}
 	
 	//confirm弹窗的处理,弹窗出现后点击取消按钮
@@ -279,10 +294,11 @@ public class WebDriverBase{
 		}
 		Alert alert = driver.switchTo().alert();
 		alert.dismiss();
+		logger.debug("confirm弹窗的处理,弹窗出现后点击取消按钮");
 	}
 	
 	//prompt弹出框的处理，可以输入值
-	public static void promptWindow(WebDriver driver) {
+	public static void promptWindow(WebDriver driver,String sendKeys) {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -290,7 +306,8 @@ public class WebDriverBase{
 			e.printStackTrace();
 		}
 		Alert alert = driver.switchTo().alert();
-		alert.sendKeys("xxxxxxxx");
+		alert.sendKeys(sendKeys);
+		logger.debug("prompt弹出框的处理，输入：    "+sendKeys);
 	}
 	
 	//iframe子框架的处理
@@ -302,11 +319,12 @@ public class WebDriverBase{
 			e.printStackTrace();
 		}
 		driver.switchTo().frame(nameOrID);
+		logger.debug("切换到"+nameOrID+"的iframe子框架");
 //		driver.switchTo().iframe(nameOrID);
 	}
 	
-	//切换到初始的界面
-	public static void swithtoDefault(WebDriver driver) {
+	//切换到初始的框架
+	public static void swithToDefault(WebDriver driver) {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -314,21 +332,25 @@ public class WebDriverBase{
 			e.printStackTrace();
 		}
 		driver.switchTo().defaultContent();
+		logger.debug("切换到初始的框架");
 	}
 	//下拉框的处理，标签一般是select标签,通过Index进行定位
 	public static void selectByIndex(WebDriver driver,WebElement element,int index) {
 		Select select = new Select(element);
 		select.selectByIndex(index);
+		logger.debug("下拉框选择select标签：  "+index);
 	}
 	//通过value进行定位
 	public static void selectByValue(WebDriver driver,WebElement element,String value) {
 		Select select = new Select(element);
 		select.selectByValue(value);
+		logger.debug("下拉框选择select标签："+value);
 	}
 	//通过文本值进行定位
 	public static void selectByVisibleText(WebDriver driver,WebElement element,String text) {
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
+		logger.debug("下拉框选择select标签："+text);
 	}
 	
 	//切换窗口
@@ -337,10 +359,11 @@ public class WebDriverBase{
 		Set<String> handles = driver.getWindowHandles();
 		for(String ae:handles) {
 			if(ae.equals(handle)) {
-				System.out.println("获取到的handle是：      "+ae);
+				logger.debug("获取到的handle是：      "+ae);
 				continue;
 			}else {
 				driver.switchTo().window(ae);
+				logger.debug("跳转到的handle是：      "+ae);
 			}
 		}
 	}
@@ -354,7 +377,7 @@ public class WebDriverBase{
 		//实例化actions
 		Actions actions = new Actions(driver);
 		actions.contextClick(element).perform();
-		
+		logger.debug("右键点击");
 	}
 	
 	//双击操作
@@ -363,13 +386,15 @@ public class WebDriverBase{
 			//实例化actions
 			Actions actions = new Actions(driver);
 			actions.doubleClick(element).perform();
+			logger.debug("双击操作");
 		}
-		//双击操作
+		//移动光标到某个元素
 		public static void moveElement(WebDriver driver,By by) {
 			WebElement element = driver.findElement(by);
 			//实例化actions
 			Actions actions = new Actions(driver);
 			actions.moveToElement(element).perform();
+			logger.debug("移动光标到：    "+element.getText());
 		}
 		
 		//拖拽元素到某个元素操作
@@ -378,6 +403,7 @@ public class WebDriverBase{
 			//实例化actions
 			Actions actions = new Actions(driver);
 			actions.dragAndDrop(element, target).perform();
+			logger.debug("拖拽元素到：    "+element.getText());
 		}
 		
 		//拖拽元素到某个元素操作
@@ -387,6 +413,7 @@ public class WebDriverBase{
 			//实例化actions
 			Actions actions = new Actions(driver);
 			actions.clickAndHold(elementstart).moveToElement(elementend).release(elementstart).perform();
+			logger.debug("拖拽元素到：    "+elementend.getText());
 		}
 		
 		//推拽元素到某个坐标点
@@ -395,6 +422,7 @@ public class WebDriverBase{
 			//实例化actions
 			Actions actions = new Actions(driver);
 			actions.dragAndDropBy(element, xOffset, yOffset).perform();
+			logger.debug("拖拽元素到：       "+xOffset+":"+yOffset);
 		}
 		
 		//下拉框多选操作
@@ -402,6 +430,7 @@ public class WebDriverBase{
 			List<WebElement> list = driver.findElements(listElement);
 			Actions actions = new Actions(driver);
 			actions.keyDown(Keys.CONTROL).click(list.get(index)).release().perform();
+			logger.debug("下拉框多选");
 		}
 		
 		
@@ -416,12 +445,13 @@ public class WebDriverBase{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			logger.debug("键盘模拟Ctrl+S操作");
 		}
 		
 		//上传文件操作,但是需要元素的标签是input
 		public static void uploadFile(WebDriver driver,By by,String Location) {
 			driver.findElement(by).sendKeys(Location);
+			logger.debug("上传文件地址：           "+Location);
 		}
 	
 		
@@ -429,6 +459,7 @@ public class WebDriverBase{
 		public static void execJS(WebDriver driver,String key,String value) {
 			JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 			javascriptExecutor.executeScript(key, value);
+			logger.debug("执行js脚本");
 		}
 		
 		//针对元素进行截图
@@ -452,6 +483,7 @@ public class WebDriverBase{
 					// TODO Auto-generated catch block
 				  e.printStackTrace();
 			 }
+			 logger.debug("对元素进行截图，保存路径是：           "+path);
 		}
 		
 		//针对元素进行截图
@@ -459,6 +491,7 @@ public class WebDriverBase{
 			 // 获得element的位置和大小
 			 WebElement element=(WebElement) driver.findElement(by);
 			 this.takeScreenForElement(element, path, fileName);
+			 logger.debug("对元素进行截图，保存路径是：           "+path);
 		}
 		
 		//截图全屏
@@ -466,6 +499,7 @@ public class WebDriverBase{
 			File srcFile=element.getScreenshotAs(OutputType.FILE);
 			System.out.println(path+fileName);
 			FileUtils.copyFile(srcFile,new File(path+"/"+fileName+".png"));
+			logger.debug("截取全屏，路径是：          "+path);
 		}
 		
 		//截图全屏

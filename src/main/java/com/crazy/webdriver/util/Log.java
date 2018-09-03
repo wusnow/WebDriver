@@ -11,8 +11,8 @@ import org.apache.log4j.PropertyConfigurator;
 * @date 2018年8月19日
  */
 public class Log {
-	private static Logger log;
-	private static Thread thread;
+	public static Logger log;
+	public static Thread thread;
 	public static Log getLogger(Class<?> T) {
 		//init();
 		//log = Logger.getLogger(T);
