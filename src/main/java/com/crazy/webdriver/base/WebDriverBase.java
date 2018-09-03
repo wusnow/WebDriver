@@ -41,7 +41,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.crazy.webdriver.Page.BasePage;
+import com.crazy.webdriver.util.Log;
+import com.gargoylesoftware.htmlunit.WebConsole.Logger;
+
 public class WebDriverBase{
+	
+	private Log logger=Log.getLogger(WebDriverBase.class);
 	
 	@DataProvider(name = "Browser")
 	public Object[][] getBrowser(){
@@ -462,6 +468,12 @@ public class WebDriverBase{
 			FileUtils.copyFile(srcFile,new File(path+"/"+fileName+".png"));
 		}
 		
+		//截图全屏
+//		public void takeScreen(String path,String fileName) throws Exception{
+//			File srcFile=super.getScreenshotAs(OutputType.FILE);
+//			logger.debug(path+fileName);
+//			FileUtils.copyFile(srcFile,new File(path+"/"+fileName+".png"));
+//		}
 		
 		
 		

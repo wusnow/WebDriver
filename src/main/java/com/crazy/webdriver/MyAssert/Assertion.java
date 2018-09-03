@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.crazy.webdriver.base.CrazyPath;
+import com.crazy.webdriver.base.WebDriverBase;
+import com.crazy.webdriver.imageUtils.ScreenShort;
 
 
 
@@ -21,6 +23,8 @@ public class Assertion  {
 	        	fail(fileName);
 	        }
 	  }
+	  
+	  
 	  public  void assertEquals(Object actual, Object expected, String fileName,String message){
 	        try{
 	            Assert.assertEquals(actual, expected, message);
@@ -33,7 +37,8 @@ public class Assertion  {
 	            Assert.assertEquals(actual, expected);
 	        }catch(AssertionError e){
 	        	try {
-	        		driver.takeScreen(CrazyPath.path, "\\images\\"+Thread.currentThread().getId()+fileName);
+//	        		driver.takeScreen(CrazyPath.path, "\\images\\"+Thread.currentThread().getId()+fileName);
+	        		ScreenShort.screenShots1(fileName);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -45,7 +50,8 @@ public class Assertion  {
 	            Assert.assertEquals(actual, expected, message);
 	        }catch(AssertionError e){
 	           	try {
-	        		driver.takeScreen(CrazyPath.path, "\\images\\"+Thread.currentThread().getId()+fileName);
+//	        		driver.takeScreen(CrazyPath.path, "\\images\\"+Thread.currentThread().getId()+fileName);
+	        		ScreenShort.takeScreenShort(fileName);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -59,7 +65,8 @@ public class Assertion  {
 			  	System.out.println(date);
   			    Reporter.log("<a href=http://localhost:8080/" + Thread.currentThread().getId()+"_"+date+fileName+".png" + " target=_blank>失败截图</a>", true);  
   			    Reporter.log("<img src=http://localhost:8080/"+Thread.currentThread().getId()+"_"+date+fileName +".png"+" style=width:30px;height:30px img/>", true);
-				driver.takeScreen("D:/apache-tomcat-8.5.33/webapps/ROOT/",date+fileName);
+  			    ScreenShort.takeScreen("D:/apache-tomcat-8.5.33/webapps/ROOT/",date+fileName);
+				
 		  } catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -73,7 +80,7 @@ public class Assertion  {
 			  	System.out.println(date);
     			Reporter.log("<a href=http://localhost:8080/" + Thread.currentThread().getId()+"_"+date+fileName +".png"+ " target=_blank>失败截图</a>", true);  
     			Reporter.log("<img src=http://localhost:8080/"+Thread.currentThread().getId()+"_"+date+fileName +".png"+" style=width:30px;height:30px img/>", true);
-				driver.takeScreen("D:/apache-tomcat-8.5.33/webapps/ROOT/",date+fileName);
+    			ScreenShort.takeScreen("D:/apache-tomcat-8.5.33/webapps/ROOT/",date+fileName);
 		  } catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
