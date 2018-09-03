@@ -1,4 +1,4 @@
-package cn.crazy.appium.datadriver;
+package cn.crazy.webdriver.datadriver;
 
 import java.io.File;
 import java.io.FileInputStream;
