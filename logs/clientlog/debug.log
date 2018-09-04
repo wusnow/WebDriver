@@ -40,3 +40,6 @@
 [CrazyAppium] 2018/09/04 14:10:45  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main谷歌浏览器启动成功 
 [CrazyAppium] 2018/09/04 14:10:48  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
 [CrazyAppium] 2018/09/04 14:10:48  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 21:53:19  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/04 21:53:31  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main获取到的handle是：      CDwindow-C286E41CECE1ADD1099F5632C403A691 
+[CrazyAppium] 2018/09/04 21:53:31  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main跳转到的handle是：      CDwindow-7314B33307DC08208F3CADDAC26A82F5 
