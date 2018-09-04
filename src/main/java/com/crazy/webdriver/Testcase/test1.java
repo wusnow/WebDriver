@@ -15,9 +15,9 @@ public class test1{
 	Assertion myAssert;
 	@BeforeClass
 	public void beforeClass() {
-//		driver = WebDriverBase.openBrowser("chrome");
-		System.setProperty("webdriver.chrome.driver", "D:\\Github\\WebDriver\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = WebDriverBase.openBrowser("chrome");
+//		System.setProperty("webdriver.chrome.driver", "D:\\Github\\WebDriver\\drivers\\chromedriver.exe");
+//		driver = new ChromeDriver();
 		myAssert = new Assertion(driver);
 		
 	}
@@ -28,7 +28,7 @@ public class test1{
 //		WebDriverBase.getURL(driver, "https://www.baidu.com");
 		driver.get("https://www.baidu.com");
 		
-		myAssert.assertEquals(driver,WebDriverBase.findElement(driver,By.xpath("//*[@id=\"u1\"]/a[1]")).getText(),"加的", "news");
+		myAssert.assertEquals(driver,WebDriverBase.findElement(driver,By.xpath("//*[@id=\"u1\"]/a[1]")).getText(),"新闻", "news");
 	}
 	
 	@AfterClass

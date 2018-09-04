@@ -26,3 +26,17 @@
 [CrazyAppium] 2018/09/04 12:37:32  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
 [CrazyAppium] 2018/09/04 12:37:32  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
 [CrazyAppium] 2018/09/04 12:37:32   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904123732 
+[CrazyAppium] 2018/09/04 13:59:7  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 13:59:7  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 13:59:7   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904135907 
+[CrazyAppium] 2018/09/04 14:00:27  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 14:00:27  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 14:00:27   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904140027 
+[CrazyAppium] 2018/09/04 14:03:17  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 14:03:17  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 14:03:17   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904140317 
+[CrazyAppium] 2018/09/04 14:07:36  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 14:07:36  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 14:10:45  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main谷歌浏览器启动成功 
+[CrazyAppium] 2018/09/04 14:10:48  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 14:10:48  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
