@@ -35,12 +35,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import com.crazy.webdriver.util.GetByLocator;
 import com.crazy.webdriver.util.Log;
 import com.crazy.webdriver.util.SendMail;
 
 public class WebDriverBase{
-	
 	public static Log logger=Log.getLogger(WebDriverBase.class);
+	public static WebDriver driver;
 	
 	@DataProvider(name = "Browser")
 	public Object[][] getBrowser(){
@@ -57,7 +58,7 @@ public class WebDriverBase{
 //		chromePrefs.put("download.default_directory", downloadFilepath);
 //		ChromeOptions options = new ChromeOptions();
 //		options.setExperimentalOption("prefs", chromePrefs);
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\43776\\Desktop\\AutoUI\\Myself\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Github\\WebDriver\\drivers\\chromedriver.exe");
 //		driver=new ChromeDriver(options);
 		WebDriver driver = new ChromeDriver();
 //		waitDefalt(driver);
@@ -97,12 +98,12 @@ public class WebDriverBase{
 	}
 	
 	
-	public static WebDriver openBrowser(String Browser,WebDriver driver) {
+	public static WebDriver openBrowser(String Browser) {
 		String path = System.getProperty("user.dir");
 		
-//		try {
+		try {
 			if(Browser.toLowerCase().equals("chrome")) {
-				System.setProperty("webdriver.chrome.driver", "D:\\Github\\WebDriver\\drivers\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", path+"/drivers/chromedriver.exe");
 				driver = new ChromeDriver();
 				logger.debug("谷歌浏览器启动成功");
 			}else if (Browser.toLowerCase().equals("firefox")) {
@@ -119,15 +120,15 @@ public class WebDriverBase{
 				logger.debug("Safari浏览器启动成功");
 			}else {
 				logger.debug("输入的浏览器名称不准确，输入的名称是：    "+Browser);
-
+				driver = null;
 			}
 			return driver;
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			SendMail.send("driver启动失败", e.getMessage());
-//			logger.error("driver启动失败");
-//			return driver;
-//		}
+		} catch (Exception e) {
+			// TODO: handle exception
+			SendMail.send("driver启动失败", e.getMessage());
+			logger.error("driver启动失败");
+			return driver;
+		}
 
 		
 	}
@@ -515,7 +516,49 @@ public class WebDriverBase{
 //			FileUtils.copyFile(srcFile,new File(path+"/"+fileName+".png"));
 //		}
 		
+		//点击元素，根据元素表中定位
+		public void clickByKey(String key) {
+			WebDriverBase.xianshiWait(driver, GetByLocator.getLocator(key));
+			try {
+				driver.findElement(GetByLocator.getLocator(key)).click();
+				logger.debug(driver.findElement(GetByLocator.getLocator(key)).getText());
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getMessage();
+				logger.error("没有定位到元素");
+			}
+
+		}
 		
+		//点击元素，根据by进行定位
+		public void click(By by) {
+
+			try {
+				WebDriverBase.xianshiWait(driver, by);
+				driver.findElement(by).click();
+				logger.debug(driver.findElement(by).getText());
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getMessage();
+				logger.error("没有定位到元素");
+			}
+		}
+		
+		
+		public static WebElement findElement(WebDriver driver,By by) {
+
+			try {
+				WebDriverBase.xianshiWait(driver, by);
+				driver.findElement(by);
+				logger.debug(driver.findElement(by).getText());
+				return driver.findElement(by);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getMessage();
+				logger.error("没有定位到元素");
+				return null;
+			}
+		}
 		
 		
 		

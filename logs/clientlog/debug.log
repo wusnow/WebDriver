@@ -1,3 +1,28 @@
 [CrazyAppium] 2018/09/04 10:26:36  ERROR main com.crazy.webdriver.base.WebDriverBase:53 - maindriver启动失败 
 [CrazyAppium] 2018/09/04 10:32:36  ERROR main com.crazy.webdriver.base.WebDriverBase:53 - maindriver启动失败 
 [CrazyAppium] 2018/09/04 10:33:12  ERROR main com.crazy.webdriver.base.WebDriverBase:53 - maindriver启动失败 
+[CrazyAppium] 2018/09/04 11:15:36  ERROR main com.crazy.webdriver.base.WebDriverBase:53 - main没有定位到元素 
+[CrazyAppium] 2018/09/04 11:19:11  ERROR main com.crazy.webdriver.base.WebDriverBase:53 - main没有定位到元素 
+[CrazyAppium] 2018/09/04 11:21:2  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 11:21:2  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 11:24:14  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 11:24:14  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 11:36:55  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 11:36:55  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 12:06:9  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 12:06:9  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 12:12:36  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 12:12:36  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 12:12:37   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：18-9-4 下午12:12 
+[CrazyAppium] 2018/09/04 12:14:33  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 12:14:33  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 12:14:33   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：18-9-4 下午12:14 
+[CrazyAppium] 2018/09/04 12:27:34   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：18-9-4 下午12:27 
+[CrazyAppium] 2018/09/04 12:33:41   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904 
+[CrazyAppium] 2018/09/04 12:34:10   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904123410 
+[CrazyAppium] 2018/09/04 12:36:30  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 12:36:30  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 12:36:30   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904 
+[CrazyAppium] 2018/09/04 12:37:32  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main显式等待30s 
+[CrazyAppium] 2018/09/04 12:37:32  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main新闻 
+[CrazyAppium] 2018/09/04 12:37:32   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180904123732 

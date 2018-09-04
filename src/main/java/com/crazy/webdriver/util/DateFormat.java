@@ -2,6 +2,7 @@ package com.crazy.webdriver.util;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
@@ -18,12 +19,13 @@ public class DateFormat {
     public static final String ZC_DATE_FORMAT="yyyy年MM月dd日";
     public static final String SHORT_DATE_FORMAT = "yy-MM-dd HH:mm";
     public static final String CHECK_LOG_FORMAT = "yyyyMMdd";
+    public static final String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
     public static final String REPORT_CSV_FORMAT = "yyyyMMdd_HHmmss";
-    private static SimpleDateFormat simpleDateFormat;
 
     public static String format(String type){
-        simpleDateFormat=new SimpleDateFormat();
-        String s=simpleDateFormat.format(new Date());
+    	SimpleDateFormat formatter =new SimpleDateFormat(type);
+    	Date curDate = new Date(System.currentTimeMillis());
+        String s=formatter.format(curDate);
         logger.info("当前时间为："+s);
         return s;
     }
@@ -33,4 +35,9 @@ public class DateFormat {
         logger.info("11位的随机数为："+randomNum);
         return randomNum;
     }
+    
+    
+    public static void main(String[] args) {
+		System.out.println(DateFormat.format(DateFormat.CHECK_LOG_FORMAT));
+	}
 }

@@ -7,6 +7,10 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,13 +20,13 @@ import com.crazy.webdriver.util.Log;
 
 
 public class BasePage extends WebDriverBase{
-	private Log logger=Log.getLogger(BasePage.class);
+	public  Log logger=Log.getLogger(BasePage.class);
 	public String pageSource;
-	public BasePage(WebDriver driver){
-		super.driver=driver;
+	public BasePage(){
 		this.pageSource=getPageSource();
 	}
 
+	
 	public String getPageSource(){
 		logger.debug(driver.getPageSource());
 		return driver.getPageSource();
@@ -68,7 +72,7 @@ public class BasePage extends WebDriverBase{
 	}
 	
 	//点击元素，根据by进行定位
-	public void clickByElement(By by) {
+	public void click(By by) {
 
 		try {
 			WebDriverBase.xianshiWait(driver, by);

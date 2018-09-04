@@ -75,15 +75,40 @@ public class ScreenShort extends WebDriverBase {
     }
     
     
+    public static void snapshot(TakesScreenshot drivername, String filename)
+    {
+        // this method will take screen shot ,require two parameters ,one is driver name, another is file name
+        
+      String currentPath = System.getProperty("user.dir"); //get current work folder
+      System.out.println(currentPath);
+      File scrFile = drivername.getScreenshotAs(OutputType.FILE);
+          // Now you can do whatever you need to do with it, for example copy somewhere
+          try {
+              System.out.println("save snapshot path is:"+currentPath+"/"+filename);
+              FileUtils.copyFile(scrFile, new File(currentPath+"\\"+filename));
+          } catch (IOException e) {
+              // TODO Auto-generated catch block
+              System.out.println("Can't save screenshot");
+              e.printStackTrace();
+          } 
+          finally
+          {
+             
+              System.out.println("screen shot finished");
+          }
+    }
     
-    public static void takeScreen(String path,String FileName) {
+    
+    public static void takeScreen(WebDriver driver,String path,String FileName) {
     	// 调用截图方法
-        File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//    	WebDriver augmentedDriver = new Augmenter().augment(driver);
+    	File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    	
         Long date=System.currentTimeMillis();
-     // 拷贝截图文件到我们项目./Screenshots
+        // 拷贝截图文件到我们项目./Screenshots
     	try {
 //			FileUtils.copyFile(src, new File(".\\Screenshots\\screen.png"));
-			FileUtils.copyFile(src, new File(path+date+FileName+".png"));
+			FileUtils.copyFile(src, new File(path+FileName+".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
