@@ -114,6 +114,38 @@ public class ScreenShort extends WebDriverBase {
 			e.printStackTrace();
 		}
     }
+    
+    
+    public static void takeScreenFail() {
+    	// 调用截图方法
+//    	WebDriver augmentedDriver = new Augmenter().augment(driver);
+    	File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    	
+        Long date=System.currentTimeMillis();
+        // 拷贝截图文件到我们项目./Screenshots
+    	try {
+//			FileUtils.copyFile(src, new File(".\\Screenshots\\screen.png"));
+			FileUtils.copyFile(src, new File("./images/Fail/",DateFormat.format(DateFormat.YYYYMMDDHHMMSS)+".png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    public static void takeScreenSkip() {
+    	// 调用截图方法
+//    	WebDriver augmentedDriver = new Augmenter().augment(driver);
+    	File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    	
+        Long date=System.currentTimeMillis();
+        // 拷贝截图文件到我们项目./Screenshots
+    	try {
+//			FileUtils.copyFile(src, new File(".\\Screenshots\\screen.png"));
+			FileUtils.copyFile(src, new File("./images/Skip/",DateFormat.format(DateFormat.YYYYMMDDHHMMSS)+".png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 
     /**
      * 判断文件夹，没有就新建
