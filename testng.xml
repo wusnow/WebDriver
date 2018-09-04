@@ -14,8 +14,8 @@
     
     <listeners>
         <!-- //testng的XML配置文件中添加这些内容 -->
-       <listener class-name="org.uncommons.reportng.HTMLReporter" />
-       <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+       <listener class-name="com.netease.qa.testng.TestngRetry" />
+       <listener class-name="com.netease.qa.testng.TestResultListener" />
     </listeners>
 
 </suite> <!-- Suite -->
