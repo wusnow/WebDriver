@@ -14,7 +14,7 @@ import com.netease.qa.testng.utils.ConfigReader;
  */
 public class TestngRetry implements IRetryAnalyzer {
 	private static Logger logger = Logger.getLogger(TestngRetry.class);
-	private int retryCount = 1;
+	private int retryCount = 2;
 	private static int maxRetryCount;
 
 	static {

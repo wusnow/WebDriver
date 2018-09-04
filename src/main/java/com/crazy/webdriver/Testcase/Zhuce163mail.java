@@ -6,17 +6,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import com.crazy.webdriver.MyAssert.Assertion;
 import com.crazy.webdriver.base.WebDriverBase;
 import com.crazy.webdriver.util.GetByLocator;
 
 public class Zhuce163mail {
 	
 	WebDriver driver;
-	
+	Assertion myAssertion;
 	
 	@BeforeMethod
 	public void beforeClass() {
+		
 		driver = WebDriverBase.openChrome();
+		myAssertion = new Assertion(driver);
 //		System.setProperty("webdriver.chrome.driver", "C:\\Users\\43776\\Desktop\\AutoUI\\Myself\\drivers\\chromedriver.exe");
 ////		driver=new ChromeDriver(options);
 //		driver = new ChromeDriver();
@@ -56,12 +60,13 @@ public class Zhuce163mail {
 		driver.findElement(GetByLocator.getLocator("main")).click();
 		
 		
-		WebDriverBase.xianshiWait(driver, By.xpath("//*[@id=\"m_mainAcode\"]/span"));
-		String Error = driver.findElement(By.xpath("//*[@id=\"m_mainAcode\"]/span")).getText();
+		WebDriverBase.xianshiWait(driver, By.xpath("//*[@id=\"m_mainAcode\"]/span1111111"));
+		String Error = driver.findElement(By.xpath("//*[@id=\"m_mainAcode\"]/span111")).getText();
 		
 		
-		Assert.assertEquals(Error, "  手机验证码不正确，请重新填写");
+//		Assert.assertEquals(Error, "  手机验证码不正确，请重新填写");
 		
+		myAssertion.assertEquals(driver, Error, "手机验证码不正确，请重新填写", "signupError");
 	}
 
 	

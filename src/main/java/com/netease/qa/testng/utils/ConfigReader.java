@@ -24,7 +24,7 @@ public class ConfigReader {
 	private static final String RETRYCOUNT = "retrycount";
 	private static final String SOURCEDIR = "sourcecodedir";
 	private static final String SOURCEENCODING = "sourcecodeencoding";
-	private static final String path = System.getProperty("use.dir");
+	private static final String path = System.getProperty("user.dir");
 	private static final String CONFIGFILE = path+"/configs/config.properties";
 
 	private ConfigReader() {
