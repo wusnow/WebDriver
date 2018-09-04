@@ -23,10 +23,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -37,9 +35,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.crazy.webdriver.Page.BasePage;
 import com.crazy.webdriver.util.Log;
-import com.gargoylesoftware.htmlunit.WebConsole.Logger;
+import com.crazy.webdriver.util.SendMail;
 
 public class WebDriverBase{
 	
@@ -99,30 +96,40 @@ public class WebDriverBase{
 		
 	}
 	
-	public static WebDriver driver;
-	public static WebDriver openBrowser(String Browser) {
+	
+	public static WebDriver openBrowser(String Browser,WebDriver driver) {
 		String path = System.getProperty("user.dir");
-		if(Browser.toLowerCase().equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", path+"/drivers/chromedriver.exe");
-			driver = new ChromeDriver();
-			logger.debug("谷歌浏览器启动成功");
-		}else if (Browser.toLowerCase().equals("firefox")) {
-			System.setProperty("webdriver.firefox.driver", path+"/drivers/geckodriver.exe");
-			driver = new FirefoxDriver();
-			logger.debug("火狐浏览器启动成功");
-		}else if (Browser.toLowerCase().equals("ie")) {
-			System.setProperty("webdriver.ie.driver", path+"/drivers/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
-			logger.debug("IE浏览器启动成功");
-		}else if (Browser.toLowerCase().equals("safari")) {
-			System.setProperty("webdriver.safari.driver", path+"/drivers/safari.exe");
-			driver = new SafariDriver();
-			logger.debug("Safari浏览器启动成功");
-		}else {
-			logger.debug("输入的浏览器名称不准确，输入的名称是：    "+Browser);
+		
+//		try {
+			if(Browser.toLowerCase().equals("chrome")) {
+				System.setProperty("webdriver.chrome.driver", "D:\\Github\\WebDriver\\drivers\\chromedriver.exe");
+				driver = new ChromeDriver();
+				logger.debug("谷歌浏览器启动成功");
+			}else if (Browser.toLowerCase().equals("firefox")) {
+				System.setProperty("webdriver.firefox.driver", path+"/drivers/geckodriver.exe");
+				driver = new FirefoxDriver();
+				logger.debug("火狐浏览器启动成功");
+			}else if (Browser.toLowerCase().equals("ie")) {
+				System.setProperty("webdriver.ie.driver", path+"/drivers/IEDriverServer.exe");
+				driver = new InternetExplorerDriver();
+				logger.debug("IE浏览器启动成功");
+			}else if (Browser.toLowerCase().equals("safari")) {
+				System.setProperty("webdriver.safari.driver", path+"/drivers/safari.exe");
+				driver = new SafariDriver();
+				logger.debug("Safari浏览器启动成功");
+			}else {
+				logger.debug("输入的浏览器名称不准确，输入的名称是：    "+Browser);
 
-		}
-		return driver;
+			}
+			return driver;
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			SendMail.send("driver启动失败", e.getMessage());
+//			logger.error("driver启动失败");
+//			return driver;
+//		}
+
+		
 	}
 	
 	//启动不是在默认路径安装的火狐浏览器,支持57及以上
