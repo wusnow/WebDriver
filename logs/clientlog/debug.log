@@ -43,3 +43,12 @@
 [CrazyAppium] 2018/09/04 21:53:19  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main浏览器启动成功 
 [CrazyAppium] 2018/09/04 21:53:31  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main获取到的handle是：      CDwindow-C286E41CECE1ADD1099F5632C403A691 
 [CrazyAppium] 2018/09/04 21:53:31  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main跳转到的handle是：      CDwindow-7314B33307DC08208F3CADDAC26A82F5 
+[CrazyAppium] 2018/09/05 00:30:52  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 00:30:52   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 00:31:0  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main获取到的handle是：      CDwindow-5B3663F4255CAA18531CE54DED40191A 
+[CrazyAppium] 2018/09/05 00:31:0  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main跳转到的handle是：      CDwindow-6621313245482A7497C1DE80ADF0DD0D 
+[CrazyAppium] 2018/09/05 00:31:32   INFO main com.netease.qa.testng.TestngRetry:33 - Retry for [zhuce163] on class [com.crazy.webdriver.Testcase.Zhuce163mail] Retry 2 times 
+[CrazyAppium] 2018/09/05 00:31:35  DEBUG main com.crazy.webdriver.imageUtils.ScreenShort:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 00:31:35   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 00:31:43  DEBUG main com.crazy.webdriver.imageUtils.ScreenShort:29 - main获取到的handle是：      CDwindow-6D866B0DC7A18AB4F025455333859803 
+[CrazyAppium] 2018/09/05 00:31:43  DEBUG main com.crazy.webdriver.imageUtils.ScreenShort:29 - main跳转到的handle是：      CDwindow-DFB35D50B7D5C0B581FC270DCA72DF4E 
