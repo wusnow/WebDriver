@@ -1,9 +1,7 @@
 package cn.crazy.webdriver.testng;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import com.crazy.webdriver.base.CrazyPath;
 import com.crazy.webdriver.base.WebDriverBase;
 import com.crazy.webdriver.imageUtils.ScreenShort;

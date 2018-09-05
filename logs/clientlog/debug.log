@@ -118,3 +118,27 @@
 [CrazyAppium] 2018/09/05 10:33:42   INFO main com.netease.qa.testng.TestResultListener:68 - skipTest = zhuce163 
 [CrazyAppium] 2018/09/05 10:33:42   INFO main com.netease.qa.testng.TestResultListener:82 - failedTest = zhuce163 
 [CrazyAppium] 2018/09/05 10:33:42   INFO main com.netease.qa.testng.TestResultListener:105 - Remove repeat Fail Test: zhuce163 
+[CrazyAppium] 2018/09/05 16:03:8  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 16:03:8   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 16:03:18  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main获取到的handle是：      CDwindow-C912C9D707B618EF7B6C06545A513E3D 
+[CrazyAppium] 2018/09/05 16:03:18  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main跳转到的handle是：      CDwindow-3D9DC6BA7F1042932C98CC5B09675B56 
+[CrazyAppium] 2018/09/05 16:03:26   INFO main com.netease.qa.testng.TestngRetry:33 - Retry for [zhuce163] on class [com.crazy.webdriver.Testcase.Zhuce163mail] Retry 1 times 
+[CrazyAppium] 2018/09/05 16:03:26   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180905160326 
+[CrazyAppium] 2018/09/05 16:03:26   INFO main com.netease.qa.testng.TestResultListener:37 - zhuce163 跳过 
+[CrazyAppium] 2018/09/05 16:03:37  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 16:03:37   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 16:03:45  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main获取到的handle是：      CDwindow-303110F3AF1531EB9D4FBFD2A529683A 
+[CrazyAppium] 2018/09/05 16:03:45  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main跳转到的handle是：      CDwindow-B82291D30273D929E30BF5F3DFF9BADA 
+[CrazyAppium] 2018/09/05 16:03:52   INFO main com.netease.qa.testng.TestngRetry:33 - Retry for [zhuce163] on class [com.crazy.webdriver.Testcase.Zhuce163mail] Retry 2 times 
+[CrazyAppium] 2018/09/05 16:03:52   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180905160352 
+[CrazyAppium] 2018/09/05 16:03:52   INFO main com.netease.qa.testng.TestResultListener:37 - zhuce163 跳过 
+[CrazyAppium] 2018/09/05 16:04:4  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 16:04:4   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 16:04:12  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main获取到的handle是：      CDwindow-4B13FCDDD60547C07B2A90B5D7FEA4B6 
+[CrazyAppium] 2018/09/05 16:04:12  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main跳转到的handle是：      CDwindow-BBFFCE29C84A92B09B351A50FF82D9AC 
+[CrazyAppium] 2018/09/05 16:04:19   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180905160419 
+[CrazyAppium] 2018/09/05 16:04:19   INFO main com.netease.qa.testng.TestResultListener:30 - zhuce163 失败 
+[CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:68 - skipTest = zhuce163 
+[CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:68 - skipTest = zhuce163 
+[CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:82 - failedTest = zhuce163 
+[CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:105 - Remove repeat Fail Test: zhuce163 
