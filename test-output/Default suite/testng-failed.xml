@@ -3,13 +3,13 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crazy.webdriver.Testcase.Zhuce163mail">
+      <class name="com.crazy.webdriver.Testcase.TestScollToDown">
         <methods>
-          <include name="afterClass"/>
-          <include name="zhuce163"/>
           <include name="beforeClass"/>
+          <include name="test"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.crazy.webdriver.Testcase.Zhuce163mail -->
+      </class> <!-- com.crazy.webdriver.Testcase.TestScollToDown -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

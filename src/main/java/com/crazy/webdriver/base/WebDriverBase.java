@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -30,6 +31,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -265,6 +267,19 @@ public class WebDriverBase{
 		logger.debug("选中元素");
 		return driver.findElement(by).isSelected();
 	}
+	
+	
+	
+
+	public static void scrollingToDown() {
+		// 使用JavaScript的scrollTo方法和document.body.scrollHeight参数，将页面的滚动条滑动到页面的最下方
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		ThreadSleep(5);
+		logger.debug("将页面的滚动条滑动到页面的最下方,执行等待5s");
+	}
+	
+	
+	
 	
 	//判断元素是否显示
 	
@@ -565,6 +580,180 @@ public class WebDriverBase{
 			}
 		}
 		
+		
+		
+		public String pageSource;
+		public void BasePage(){
+			this.pageSource=getPageSource();
+		}
+
+		
+		public String getPageSource(){
+			logger.debug(driver.getPageSource());
+			return driver.getPageSource();
+		}
+		//输入
+		public void sendkeys(WebElement element,String value){
+			if(element!=null){
+				element.sendKeys(value);
+			}else{
+				logger.error("元素没有定位到，是null");
+			}
+		}
+
+		//点击
+		public void click(WebElement element){
+			if(element!=null){
+				element.click();
+			}else{
+				logger.error("元素没有定位到，是null");
+			}
+		}
+		
+		//清除
+		public void clear(WebElement element){
+			if(element!=null){
+				element.clear();
+			}else{
+				logger.error("元素没有定位到，是null");
+			}
+		}
+
+		
+		public static void ThreadSleep(int Time) {
+			try {
+				Thread.sleep(Time*1000);
+				logger.debug("线程死等时间是   "+Time+"   秒");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				logger.debug("线程等待失败");
+			}
+			
+		}
+
+		
+		/**
+		 * 
+		* @Title: findElement  
+		* @Description: TODO(显示等待一个元素出现，查找该元素)  
+		* @param @param by
+		* @param @return    参数  
+		* @return WebElement    返回类型  
+		* @throws  
+		* @author duanhao
+		 */
+		public WebElement findElement(By by) {
+			try {
+				WebDriverBase.xianshiWait(driver, by);
+				logger.debug(driver.findElement(by).getText());
+			} catch (Exception e) {
+				// TODO: handle exception
+				logger.error("元素:    "+by+"未找到！");
+				e.printStackTrace();
+			}
+			return driver.findElement(by);
+			
+			
+		}
+		
+		
+		/**
+		 * 
+		* @Title: findElements  
+		* @Description: TODO(查找多个元素等待元素出现的封装)  
+		* @param @param by
+		* @param @return    参数  
+		* @return List<WebElement>    返回类型  
+		* @throws  
+		* @author duanhao
+		 */
+		public List<WebElement> findElements(By by) {
+			List<WebElement> webElements = null;
+			try {
+				webElements = new WebDriverWait(driver, 30).until(new ExpectedCondition<List<WebElement>>() {
+					public List<WebElement> apply(WebDriver driver){
+						return driver.findElements(by);
+					}
+				});
+			} catch (Exception e) {
+				// TODO: handle exception
+				logger.error("元素：      "+by+"未找到！");
+				e.printStackTrace();
+			}
+			return webElements;
+		}
+		
+		/**
+		 * 
+		* @Title: sendkeys  
+		* @Description: TODO(元素框内先清空，后输入)  
+		* @param @param by
+		* @param @param text    参数  
+		* @return void    返回类型  
+		* @throws  
+		* @author duanhao
+		 */
+		public void sendkeys(By by,String text) {
+			findElement(by).clear();
+			findElement(by).sendKeys(text);
+			logger.debug("输入的元素是：   "+text);
+			
+		}
+		
+		/**
+		 * 
+		* @Title: getText  
+		* @Description: TODO(获取元素的text)  
+		* @param @param by
+		* @param @return    参数  
+		* @return String    返回类型  
+		* @throws  
+		* @author duanhao
+		 */
+		public String getText(By by) {
+			try {
+				logger.debug(findElement(by).getText());
+				return findElement(by).getText();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				logger.error("没有找到元素");
+			}
+			return null;
+			
+		}
+		
+		
+		/**
+		 * 
+		* @Title: getTexts  
+		* @Description: TODO(获取多个元素的文本值)  
+		* @param @param by
+		* @param @return    参数  
+		* @return List<String>    返回类型  
+		* @throws  
+		* @author duanhao
+		 */
+		public List<String> getTexts(By by){
+			ArrayList arrayList = new ArrayList();
+			List<WebElement> lists = findElements(by);
+//			for(int i = 0;i<lists.size();i++) {
+//				String text = lists.get(i).getText();
+//				arrayList.add(text);
+//			}
+			
+			
+			for(WebElement ae:lists) {
+				arrayList.add(ae.getText());
+				logger.debug(ae.getText());
+			}
+			return arrayList;
+		}
+		
+		public boolean fileExists(String filepath) {
+			return new File(filepath).exists();
+		}
 		
 		
 		

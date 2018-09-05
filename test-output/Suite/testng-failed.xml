@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.netease.qa.testng.TestResultListener"/>
+    <listener class-name="com.netease.qa.testng.RetryListener"/>
+  </listeners>
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.crazy.webdriver.Testcase.Zhuce163mail">
+        <methods>
+          <include name="afterClass"/>
+          <include name="zhuce163"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.crazy.webdriver.Testcase.Zhuce163mail -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

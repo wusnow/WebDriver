@@ -142,3 +142,44 @@
 [CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:68 - skipTest = zhuce163 
 [CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:82 - failedTest = zhuce163 
 [CrazyAppium] 2018/09/05 16:04:20   INFO main com.netease.qa.testng.TestResultListener:105 - Remove repeat Fail Test: zhuce163 
+[CrazyAppium] 2018/09/05 19:48:3  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 19:48:3   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 19:48:11  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main获取到的handle是：      CDwindow-2484BDB0699C59D176618234CD9649A1 
+[CrazyAppium] 2018/09/05 19:48:11  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main跳转到的handle是：      CDwindow-FC8B3F504F7031A76E8CE29D6F1AEC45 
+[CrazyAppium] 2018/09/05 19:48:19   INFO main com.netease.qa.testng.TestngRetry:33 - Retry for [zhuce163] on class [com.crazy.webdriver.Testcase.Zhuce163mail] Retry 1 times 
+[CrazyAppium] 2018/09/05 19:48:19   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180905194819 
+[CrazyAppium] 2018/09/05 19:48:19   INFO main com.netease.qa.testng.TestResultListener:37 - zhuce163 跳过 
+[CrazyAppium] 2018/09/05 19:48:23  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 19:48:23   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 19:48:31  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main获取到的handle是：      CDwindow-F25F5BCD72F5AFBE6AC4DC4017B7DD01 
+[CrazyAppium] 2018/09/05 19:48:31  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main跳转到的handle是：      CDwindow-59E279D4A3A5E59549072C8A35A0F33F 
+[CrazyAppium] 2018/09/05 19:48:38   INFO main com.netease.qa.testng.TestngRetry:33 - Retry for [zhuce163] on class [com.crazy.webdriver.Testcase.Zhuce163mail] Retry 2 times 
+[CrazyAppium] 2018/09/05 19:48:38   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180905194838 
+[CrazyAppium] 2018/09/05 19:48:38   INFO main com.netease.qa.testng.TestResultListener:37 - zhuce163 跳过 
+[CrazyAppium] 2018/09/05 19:48:42  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main浏览器启动成功 
+[CrazyAppium] 2018/09/05 19:48:42   INFO main com.netease.qa.testng.TestResultListener:49 - zhuce163 Start 
+[CrazyAppium] 2018/09/05 19:48:50  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main获取到的handle是：      CDwindow-FD16F5227C79081FF0B080A977F06F4E 
+[CrazyAppium] 2018/09/05 19:48:50  DEBUG main com.crazy.webdriver.util.DateFormat:29 - main跳转到的handle是：      CDwindow-F18A1E745E94526C602DAB79BAA26946 
+[CrazyAppium] 2018/09/05 19:48:57   INFO main com.crazy.webdriver.util.DateFormat:37 - main当前时间为：20180905194857 
+[CrazyAppium] 2018/09/05 19:48:57   INFO main com.netease.qa.testng.TestResultListener:30 - zhuce163 失败 
+[CrazyAppium] 2018/09/05 19:48:58   INFO main com.netease.qa.testng.TestResultListener:68 - skipTest = zhuce163 
+[CrazyAppium] 2018/09/05 19:48:58   INFO main com.netease.qa.testng.TestResultListener:68 - skipTest = zhuce163 
+[CrazyAppium] 2018/09/05 19:48:58   INFO main com.netease.qa.testng.TestResultListener:82 - failedTest = zhuce163 
+[CrazyAppium] 2018/09/05 19:48:58   INFO main com.netease.qa.testng.TestResultListener:105 - Remove repeat Fail Test: zhuce163 
+[CrazyAppium] 2018/09/05 20:35:24  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main谷歌浏览器启动成功 
+[CrazyAppium] 2018/09/05 20:35:24  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main隐式等待30s 
+[CrazyAppium] 2018/09/05 20:35:25  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main退出浏览器 
+[CrazyAppium] 2018/09/05 20:35:47  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main谷歌浏览器启动成功 
+[CrazyAppium] 2018/09/05 20:35:48  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main隐式等待30s 
+[CrazyAppium] 2018/09/05 21:31:55  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main谷歌浏览器启动成功 
+[CrazyAppium] 2018/09/05 21:31:55  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main隐式等待30s 
+[CrazyAppium] 2018/09/05 21:32:2  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main打开网页：https://www.jd.com 
+[CrazyAppium] 2018/09/05 21:32:34  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main退出浏览器 
+[CrazyAppium] 2018/09/05 21:39:13  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main谷歌浏览器启动成功 
+[CrazyAppium] 2018/09/05 21:39:13  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main隐式等待30s 
+[CrazyAppium] 2018/09/05 21:39:20  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main打开网页：https://www.jd.com 
+[CrazyAppium] 2018/09/05 21:39:31  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main线程死等时间是   10   秒 
+[CrazyAppium] 2018/09/05 21:39:36  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main线程死等时间是   5   秒 
+[CrazyAppium] 2018/09/05 21:39:36  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main将页面的滚动条滑动到页面的最下方,执行等待5s 
+[CrazyAppium] 2018/09/05 21:39:41  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main线程死等时间是   5   秒 
+[CrazyAppium] 2018/09/05 21:39:42  DEBUG main com.crazy.webdriver.base.WebDriverBase:29 - main退出浏览器 
