@@ -11,9 +11,9 @@ import com.crazy.webdriver.MyAssert.Assertion;
 import com.crazy.webdriver.base.WebDriverBase;
 import com.crazy.webdriver.util.GetByLocator;
 
-public class Zhuce163mail {
+public class Zhuce163mail extends WebDriverBase{
 	
-	WebDriver driver;
+//	WebDriver driver;
 	Assertion myAssertion;
 	
 	@BeforeMethod
@@ -60,7 +60,7 @@ public class Zhuce163mail {
 		driver.findElement(GetByLocator.getLocator("main")).click();
 		
 		
-		WebDriverBase.xianshiWait(driver, By.xpath("//*[@id=\"m_mainAcode\"]/span1111111"));
+		WebDriverBase.xianshiWaitByTime(driver,By.xpath("//*[@id=\"m_mainAcode\"]/span1111111"), 5);
 		String Error = driver.findElement(By.xpath("//*[@id=\"m_mainAcode\"]/span111")).getText();
 		
 		

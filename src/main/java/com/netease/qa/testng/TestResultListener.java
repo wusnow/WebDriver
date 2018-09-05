@@ -27,14 +27,14 @@ public class TestResultListener extends TestListenerAdapter {
 	public void onTestFailure(ITestResult tr) {
 		super.onTestFailure(tr);
 		ScreenShort.takeScreenFail();
-		logger.info(tr.getName() + " Failure");
+		logger.info(tr.getName() + " 失败");
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult tr) {
 		super.onTestSkipped(tr);
 		ScreenShort.takeScreenSkip();
-		logger.info(tr.getName() + " Skipped");
+		logger.info(tr.getName() + " 跳过");
 	}
 
 	@Override

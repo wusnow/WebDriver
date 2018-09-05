@@ -11,6 +11,9 @@ import com.crazy.webdriver.base.WebDriverBase;
 import com.crazy.webdriver.util.DateFormat;
 import com.crazy.webdriver.util.Log;
 import com.crazy.webdriver.util.MyFile;
+
+import bsh.This;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -18,7 +21,8 @@ import java.io.IOException;
 /**
  * Created by lenovo on 2016/11/12.必须要继承SeleniumDrivers
  */
-public class ScreenShort extends WebDriverBase {
+public class ScreenShort extends WebDriverBase{
+//	public static WebDriver driver;
     static final Log logger=Log.getLogger(ScreenShort.class);
     static String path = CrazyPath.path;
     static String tomcatPath = "D:/apache-tomcat-8.5.33/webapps/ROOT/";
@@ -99,7 +103,7 @@ public class ScreenShort extends WebDriverBase {
     }
     
     
-    public static void takeScreen(WebDriver driver,String path,String FileName) {
+    public static void takeScreen(String path,String FileName) {
     	// 调用截图方法
 //    	WebDriver augmentedDriver = new Augmenter().augment(driver);
     	File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -115,13 +119,12 @@ public class ScreenShort extends WebDriverBase {
 		}
     }
     
-    
     public static void takeScreenFail() {
     	// 调用截图方法
 //    	WebDriver augmentedDriver = new Augmenter().augment(driver);
     	File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
     	
-        Long date=System.currentTimeMillis();
+//        Long date=System.currentTimeMillis();
         // 拷贝截图文件到我们项目./Screenshots
     	try {
 //			FileUtils.copyFile(src, new File(".\\Screenshots\\screen.png"));

@@ -254,6 +254,11 @@ public class WebDriverBase{
 		logger.debug("显式等待30s");
 	}
 	
+	public static void xianshiWaitByTime(WebDriver driver,By by,int time) {
+		new WebDriverWait(driver, time).until(ExpectedConditions.presenceOfElementLocated(by));
+		logger.debug("显式等待"+time+"s");
+	}
+	
 	
 	//判断元素是否选中
 	public static boolean isSelected(WebDriver driver,By by) {

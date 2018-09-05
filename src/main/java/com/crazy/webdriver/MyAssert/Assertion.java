@@ -63,7 +63,7 @@ public class Assertion  {
 			  	System.out.println(date);
   			    Reporter.log("<a href=http://localhost:8080/" + Thread.currentThread().getId()+"_"+date+fileName+".png" + " target=_blank>失败截图</a>", true);  
   			    Reporter.log("<img src=http://localhost:8080/"+Thread.currentThread().getId()+"_"+date+fileName +".png"+" style=width:30px;height:30px img/>", true);
-  			    ScreenShort.takeScreen(driver,"./images/",DateFormat.format(DateFormat.YYYYMMDDHHMMSS)+fileName);
+  			    ScreenShort.takeScreen("./images/",DateFormat.format(DateFormat.YYYYMMDDHHMMSS)+fileName);
 				
 		  } catch (Exception e1) {
 				// TODO Auto-generated catch block
@@ -80,7 +80,7 @@ public class Assertion  {
 			  	System.out.println(date);
   			    Reporter.log("<a href=http://localhost:8080/" + Thread.currentThread().getId()+"_"+date+fileName+".png" + " target=_blank>失败截图</a>", true);  
   			    Reporter.log("<img src=http://localhost:8080/"+Thread.currentThread().getId()+"_"+date+fileName +".png"+" style=width:30px;height:30px img/>", true);
-  			    ScreenShort.takeScreen(driver,"D:/apache-tomcat-8.5.33/webapps/ROOT/",DateFormat.format(DateFormat.YYYYMMDDHHMMSS)+fileName);
+  			    ScreenShort.takeScreen("D:/apache-tomcat-8.5.33/webapps/ROOT/",DateFormat.format(DateFormat.YYYYMMDDHHMMSS)+fileName);
 				
 		  } catch (Exception e1) {
 				// TODO Auto-generated catch block
@@ -96,7 +96,7 @@ public class Assertion  {
 			  	System.out.println(date);
     			Reporter.log("<a href=http://localhost:8080/" + Thread.currentThread().getId()+"_"+date+fileName +".png"+ " target=_blank>失败截图</a>", true);  
     			Reporter.log("<img src=http://localhost:8080/"+Thread.currentThread().getId()+"_"+date+fileName +".png"+" style=width:30px;height:30px img/>", true);
-    			ScreenShort.takeScreen(driver,"D:/apache-tomcat-8.5.33/webapps/ROOT/",date+fileName);
+    			ScreenShort.takeScreen("D:/apache-tomcat-8.5.33/webapps/ROOT/",date+fileName);
 		  } catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
